@@ -1,26 +1,119 @@
 import React, { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown, FaUsersCog } from "react-icons/fa";
+import { FcHome, FcOpenedFolder, FcFolder } from "react-icons/fc";
+import { BsBuildingCheck, BsFileSpreadsheet } from "react-icons/bs";
 import { SlMenu } from "react-icons/sl";
 import Toggle from "../reusable/Toggle";
 import { tableData } from "../../lib/mockdata";
-import Logo from "../../assets/Logo";
+import { Link, useLocation } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Header = () => {
   const [initialDrop, setInitialDrop] = useState(false);
+  const [bar, setBar] = useState(false);
+  const location = useLocation();
 
   return (
     <>
       <div className="md:h-[7.2%] h-[18%] w-full bg-white shadow-sm border-y-2 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto">
         {/* mob */}
-        <div className="lg:hidden flex flex-col gap-2 w-full py-1">
+        <div className="flex lg:hidden flex-col gap-2 w-full py-1">
           <div className="flex items-center justify-between px-2">
-            <SlMenu size={25} />
+            <SlMenu onClick={() => setBar(true)} size={25} />
             <div className="flex items-center gap-1 text-sm">
               <p>User</p>
               <Toggle />
               <p>Admin</p>
             </div>
           </div>
+          {bar && (
+            <div
+              className={`block lg:hidden absolute left-0 top-0 z-[1000] w-4/5 md:w-1/3 h-screen bg-[#333547]/90 overflow-y-auto no-scrollbar transition-all duration-300 ease-in-out ${
+                bar ? "translate-x-0" : "-translate-x-64"
+              }`}
+            >
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <div className="bg-[#F8F8FA] rounded-md py-1 px-1.5 border w-96">
+                    <input
+                      type="text"
+                      placeholder="Search for documents"
+                      className="text-xs border-2 rounded-md py-0.5 pl-2 w-[90%]"
+                    />
+                  </div>
+                  <button
+                    onClick={() => setBar(false)}
+                    className="self-end p-2"
+                  >
+                    <IoMdArrowRoundBack size={25} color="white" />
+                  </button>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <Link
+                    to={"/"}
+                    className={location.pathname === "/" ? "focused" : "links"}
+                  >
+                    <FcHome />
+                    <p>Dashboard</p>
+                  </Link>
+                  <Link
+                    to={"/about"}
+                    className={
+                      location.pathname.includes("about") ? "focused" : "links"
+                    }
+                  >
+                    <FcOpenedFolder />
+                    <p>Document Collection</p>
+                  </Link>
+                  <Link
+                    to={"/contact"}
+                    className={
+                      location.pathname.includes("contact")
+                        ? "focused"
+                        : "links"
+                    }
+                  >
+                    <FcFolder />
+                    <p>Favorite Files</p>
+                  </Link>
+                  <Link
+                    to={"/contact"}
+                    className={
+                      location.pathname.includes("contact")
+                        ? "focused"
+                        : "links"
+                    }
+                  >
+                    <FaUsersCog />
+                    <p>Assigned To Me</p>
+                  </Link>
+                  <Link
+                    to={"/contact"}
+                    className={
+                      location.pathname.includes("contact")
+                        ? "focused"
+                        : "links"
+                    }
+                  >
+                    <BsBuildingCheck />
+                    <p>Checked Out</p>
+                  </Link>
+                  <Link
+                    to={"/contact"}
+                    className={
+                      location.pathname.includes("contact")
+                        ? "focused"
+                        : "links"
+                    }
+                  >
+                    <BsFileSpreadsheet />
+                    <p>Unindexed Files</p>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* desk */}
