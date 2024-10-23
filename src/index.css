@@ -34,7 +34,7 @@
 }
 
 .switch-slider {
-  @apply absolute cursor-pointer top-0 right-0 left-0 bottom-0 bg-gray-300 border-2 border-black rounded-full;
+  @apply absolute cursor-pointer top-0 right-0 left-0 bottom-0 bg-gray-100 border-2 border-black rounded-full;
   transition: 0.4s;
 }
 
@@ -50,4 +50,31 @@ input:checked + .switch-slider {
 
 input:checked + .switch-slider::before {
   transform: translateX(18px);
+}
+
+/* react paginate styling */
+.paginationContainer {
+  @apply w-fit text-xs lg:text-sm font-medium text-[#A7A7F3] flex items-center justify-center border-2;
+}
+
+.paginationActive {
+  /* background: #606fd0;
+  color: #e2d2fc;
+  font-weight: 500;
+  padding: 2px 8px;
+  height: 100%; */
+  @apply bg-[#606fd0] text-white;
+}
+
+.eachElem {
+  /* padding: 2px 10px; */
+  @apply border-s-2 py-1 px-2 lg:px-3;
+}
+
+.prevBtnClass {
+  @apply text-[#959da4] px-2;
+}
+
+.nexBtnClass {
+  @apply text-[#A7A7F3] px-2;
 }

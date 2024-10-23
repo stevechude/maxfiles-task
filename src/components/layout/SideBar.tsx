@@ -10,8 +10,8 @@ const SideBar = () => {
 
   return (
     <>
-      <div className="hidden md:block w-[200px] h-screen bg-[#333547]">
-        <div className="text-white h-14 bg-white border-r border-[#cbc9c9]">
+      <div className="hidden lg:block w-[200px] h-screen bg-[#333547]">
+        <div className="text-white h-[7%] bg-white border-r border-[#cbc9c9]">
           <Logo />
         </div>
         <div className="flex flex-col gap-3">

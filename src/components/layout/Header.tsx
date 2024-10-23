@@ -1,19 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { SlMenu } from "react-icons/sl";
 import Toggle from "../reusable/Toggle";
+import { tableData } from "../../lib/mockdata";
+import Logo from "../../assets/Logo";
 
 const Header = () => {
+  const [initialDrop, setInitialDrop] = useState(false);
+
   return (
     <>
-      <div className="h-[3.6rem] w-full bg-white shadow-sm border-y-2 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto">
-        <div className="hidden text-black p-2 md:flex items-center w-full justify-between">
+      <div className="md:h-[7.2%] h-[18%] w-full bg-white shadow-sm border-y-2 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto">
+        {/* mob */}
+        <div className="lg:hidden flex flex-col gap-2 w-full py-1">
+          <div className="flex items-center justify-between px-2">
+            <SlMenu size={25} />
+            <div className="flex items-center gap-1 text-sm">
+              <p>User</p>
+              <Toggle />
+              <p>Admin</p>
+            </div>
+          </div>
+        </div>
+
+        {/* desk */}
+        <div className="hidden text-black px-2 lg:flex items-center w-full justify-between">
           <SlMenu size={25} />
-          <div className="bg-[#C0C0F5] rounded-lg text-[#333547] text-sm">
-            <div className="flex items-center gap-3 py-1.5 px-2">
+          <div className="bg-[#C0C0F5] rounded-lg text-[#333547] text-sm w-fit hidden xl:block">
+            <button
+              onClick={() => setInitialDrop(!initialDrop)}
+              className="flex items-center gap-3 py-1.5 px-2 w-full"
+            >
               <p>Initiate Workflow</p>
               <FaAngleDown />
-            </div>
+            </button>
+            {initialDrop && (
+              <div className="absolute rounded-b-md flex flex-col w-fit border-2 border-[#707070] z-50">
+                <div className="py-1 pb-2 border-y border-gray-200 bg-[#E6E6FF]">
+                  <input
+                    type="text"
+                    placeholder="search workflow"
+                    className="text-xs pl-2 py-1 mx-0.5 border border-[#707070] rounded-xl"
+                  />
+                </div>
+                {tableData?.slice(0, 6).map((data, i) => (
+                  <div
+                    key={data.sn}
+                    className={`py-2 px-2 border-y border-[#707070] ${
+                      i % 2 !== 0 ? "bg-[#E6E6FF]" : "bg-white"
+                    }`}
+                  >
+                    {data.title}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           {/* 3 */}
           <div className="flex items-center gap-4">
@@ -27,21 +68,21 @@ const Header = () => {
             <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm">
               Search
             </button>
-            <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm">
+            <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm w-24">
               Upload File
             </button>
 
-            <div className="flex items-center justify-center gap-2 text-sm">
+            <div className="flex items-center justify-center gap-1 text-sm">
               <p>User</p>
               <Toggle />
               <p>Admin</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 text-sm">
+          <button className="flex items-center gap-1 text-sm w-full lg:w-[8.5rem]">
             <p>Damilola Odusola</p>
             <FaAngleDown />
-          </div>
+          </button>
         </div>
       </div>
     </>
