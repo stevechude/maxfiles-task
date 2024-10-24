@@ -23,45 +23,45 @@ const SideBar = () => {
             <p>Dashboard</p>
           </Link>
           <Link
-            to={"/about"}
+            to={"/document"}
             className={
-              location.pathname.includes("about") ? "focused" : "links"
+              location.pathname.includes("document") ? "focused" : "links"
             }
           >
             <FcOpenedFolder />
             <p>Document Collection</p>
           </Link>
           <Link
-            to={"/contact"}
+            to={"/favorite"}
             className={
-              location.pathname.includes("contact") ? "focused" : "links"
+              location.pathname.includes("favorite") ? "focused" : "links"
             }
           >
             <FcFolder />
             <p>Favorite Files</p>
           </Link>
           <Link
-            to={"/contact"}
+            to={"/assigned-to"}
             className={
-              location.pathname.includes("contact") ? "focused" : "links"
+              location.pathname.includes("assigned-to") ? "focused" : "links"
             }
           >
             <FaUsersCog />
             <p>Assigned To Me</p>
           </Link>
           <Link
-            to={"/contact"}
+            to={"/checked-out"}
             className={
-              location.pathname.includes("contact") ? "focused" : "links"
+              location.pathname.includes("checked-out") ? "focused" : "links"
             }
           >
             <BsBuildingCheck />
             <p>Checked Out</p>
           </Link>
           <Link
-            to={"/contact"}
+            to={"/unindex"}
             className={
-              location.pathname.includes("contact") ? "focused" : "links"
+              location.pathname.includes("unindex") ? "focused" : "links"
             }
           >
             <BsFileSpreadsheet />

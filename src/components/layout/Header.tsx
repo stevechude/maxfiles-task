@@ -15,7 +15,11 @@ const Header = () => {
 
   return (
     <>
-      <div className="md:h-[7.2%] h-[18%] w-full bg-white shadow-sm border-y-2 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto">
+      <div
+        className={`md:h-[7.2%] w-full bg-white shadow-sm border-y-2 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto ${
+          location.pathname === "/" ? "h-[16%]" : "h-[8%]"
+        }`}
+      >
         {/* mob */}
         <div className="flex lg:hidden flex-col gap-2 w-full py-1">
           <div className="flex items-center justify-between px-2">
@@ -58,18 +62,20 @@ const Header = () => {
                     <p>Dashboard</p>
                   </Link>
                   <Link
-                    to={"/about"}
+                    to={"/document"}
                     className={
-                      location.pathname.includes("about") ? "focused" : "links"
+                      location.pathname.includes("document")
+                        ? "focused"
+                        : "links"
                     }
                   >
                     <FcOpenedFolder />
                     <p>Document Collection</p>
                   </Link>
                   <Link
-                    to={"/contact"}
+                    to={"/favorite"}
                     className={
-                      location.pathname.includes("contact")
+                      location.pathname.includes("favorite")
                         ? "focused"
                         : "links"
                     }
@@ -78,9 +84,9 @@ const Header = () => {
                     <p>Favorite Files</p>
                   </Link>
                   <Link
-                    to={"/contact"}
+                    to={"/assigned-to"}
                     className={
-                      location.pathname.includes("contact")
+                      location.pathname.includes("assigned-to")
                         ? "focused"
                         : "links"
                     }
@@ -89,9 +95,9 @@ const Header = () => {
                     <p>Assigned To Me</p>
                   </Link>
                   <Link
-                    to={"/contact"}
+                    to={"/checked-out"}
                     className={
-                      location.pathname.includes("contact")
+                      location.pathname.includes("checked-out")
                         ? "focused"
                         : "links"
                     }
@@ -100,9 +106,9 @@ const Header = () => {
                     <p>Checked Out</p>
                   </Link>
                   <Link
-                    to={"/contact"}
+                    to={"/unindex"}
                     className={
-                      location.pathname.includes("contact")
+                      location.pathname.includes("unindex")
                         ? "focused"
                         : "links"
                     }
@@ -158,10 +164,10 @@ const Header = () => {
                 className="text-xs border-2 rounded-md py-0.5 pl-2 w-[90%]"
               />
             </div>
-            <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm">
+            <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm hover:bg-white hover:text-[#A7A7F3] hover:border hover:border-[#A7A7F3]">
               Search
             </button>
-            <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm w-24">
+            <button className="bg-[#C0C0F5] rounded-md py-1.5 px-2 font-semibold text-[#333547] text-sm w-24 hover:bg-white hover:text-[#A7A7F3] hover:border hover:border-[#A7A7F3]">
               Upload File
             </button>
 

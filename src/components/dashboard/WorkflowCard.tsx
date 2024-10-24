@@ -51,7 +51,7 @@ const WorkflowCard = ({ top, headers, data }: Props) => {
                 <td className="py-1 px-4 capitalize">{dt.title}</td>
                 <td className="py-1 px-4"></td>
                 <td className="py-1 px-4">
-                  <button className="bg-[#A7A7F3] border border-[#707070] outline-none rounded-md text-xs lg:text-sm py-0.5 px-4">
+                  <button className="bg-[#A7A7F3] border border-[#707070] outline-none rounded-md text-xs lg:text-sm py-0.5 px-4 hover:bg-white hover:text-[#A7A7F3]">
                     View
                   </button>
                 </td>
