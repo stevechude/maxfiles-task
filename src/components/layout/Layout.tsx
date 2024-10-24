@@ -12,7 +12,7 @@ const Layout = ({
       <Header />
       <div className="h-screen w-full flex bg-[#F5F5F5]">
         <SideBar />
-        <div className="p-2 lg:p-4 bg-[#ECECF1] overflow-x-auto overflow-y-auto">
+        <div className="p-2 lg:p-4 bg-[#ECECF1] overflow-x-auto overflow-y-auto w-full">
           {children}
         </div>
       </div>
