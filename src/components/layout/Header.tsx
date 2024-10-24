@@ -7,6 +7,7 @@ import Toggle from "../reusable/Toggle";
 import { tableData } from "../../lib/mockdata";
 import { Link, useLocation } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import Logo from "../../assets/Logo";
 
 const Header = () => {
   const [initialDrop, setInitialDrop] = useState(false);
@@ -16,12 +17,14 @@ const Header = () => {
   return (
     <>
       <div
-        className={`md:h-[7.2%] w-full bg-white shadow-sm border-y-2 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto ${
-          location.pathname === "/" ? "h-[16%]" : "h-[8%]"
-        }`}
+        className={`w-full bg-white shadow-sm border-y-1 rounded-[1px] border-[#cbc9c9] flex items-center overflow-x-auto ${location.pathname === "/" ? "" : ""
+          }`}
       >
+        <div className="hidden lg:block text-white bg-white max-w-[200px] w-full">
+          <Logo className="w-full" />
+        </div>
         {/* mob */}
-        <div className="flex lg:hidden flex-col gap-2 w-full py-1">
+        <div className="flex lg:hidden flex-col gap-2 w-full py-2">
           <div className="flex items-center justify-between px-2">
             <SlMenu onClick={() => setBar(true)} size={25} />
             <div className="flex items-center gap-1 text-sm">
@@ -32,9 +35,8 @@ const Header = () => {
           </div>
           {bar && (
             <div
-              className={`block lg:hidden absolute left-0 top-0 z-[1000] w-4/5 md:w-1/3 h-screen bg-[#333547]/90 overflow-y-auto no-scrollbar transition-all duration-300 ease-in-out ${
-                bar ? "translate-x-0" : "-translate-x-64"
-              }`}
+              className={`block lg:hidden absolute left-0 top-0 z-[1000] w-4/5 md:w-1/3 h-screen bg-[#333547]/90 overflow-y-auto no-scrollbar transition-all duration-300 ease-in-out ${bar ? "translate-x-0" : "-translate-x-64"
+                }`}
             >
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
@@ -123,7 +125,7 @@ const Header = () => {
         </div>
 
         {/* desk */}
-        <div className="hidden text-black px-2 lg:flex items-center w-full justify-between">
+        <div className="hidden text-black px-2 py-2 lg:flex items-center w-full justify-between">
           <SlMenu size={25} />
           <div className="bg-[#C0C0F5] rounded-lg text-[#333547] text-sm w-fit hidden xl:block">
             <button
@@ -145,9 +147,8 @@ const Header = () => {
                 {tableData?.slice(0, 6).map((data, i) => (
                   <div
                     key={data.sn}
-                    className={`py-2 px-2 border-y border-[#707070] ${
-                      i % 2 !== 0 ? "bg-[#E6E6FF]" : "bg-white"
-                    }`}
+                    className={`py-2 px-2 border-y border-[#707070] ${i % 2 !== 0 ? "bg-[#E6E6FF]" : "bg-white"
+                      }`}
                   >
                     {data.title}
                   </div>

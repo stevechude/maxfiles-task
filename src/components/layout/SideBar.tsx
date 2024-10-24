@@ -10,10 +10,10 @@ const SideBar = () => {
 
   return (
     <>
-      <div className="hidden lg:block w-[200px] h-screen bg-[#333547]">
-        <div className="text-white h-[7%] bg-white border-r border-[#cbc9c9]">
+      <div className="hidden lg:block w-[200px] min-w-[200px] flex-shrink-0 h-screen bg-[#333547]">
+        {/* <div className="text-white h-[7%] bg-white border-r border-[#cbc9c9]">
           <Logo />
-        </div>
+        </div> */}
         <div className="flex flex-col gap-3">
           <Link
             to={"/"}

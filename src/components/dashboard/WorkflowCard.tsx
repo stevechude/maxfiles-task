@@ -18,14 +18,14 @@ const WorkflowCard = ({ top, headers, data }: Props) => {
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+    // console.log(
+    //   `User requested page number ${event.selected}, which is offset ${newOffset}`
+    // ); md:w-[20rem] xl:w-[35rem]
     setItemOffset(newOffset);
   };
 
   return (
-    <div className="border-[#707070] rounded-sm w-full md:w-[20rem] lg:w-[35rem] bg-white text-xs lg:text-sm overflow-auto">
+    <div className="border-[#707070] rounded-sm w-full md:w-[20rem] xl:w-[35rem] bg-white text-xs lg:text-sm overflow-auto">
       <div className="p-1 md:p-2 flex flex-col gap-1 border">
         <p className="font-semibold">{top}</p>
 
@@ -36,9 +36,8 @@ const WorkflowCard = ({ top, headers, data }: Props) => {
               {headers?.map((header: any, i: number) => (
                 <th
                   key={i}
-                  className={`text-left text-[#707070] font-normal px-4 py-1.5 border ${
-                    i === 0 ? "lg:w-[60%]" : ""
-                  }`}
+                  className={`text-left text-[#707070] font-normal px-4 py-1.5 border ${i === 0 ? "lg:w-[60%]" : ""
+                    }`}
                 >
                   {header}
                 </th>
